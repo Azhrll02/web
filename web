@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AzIoT.com - Custom Electronic Device Creation</title>
+    <title>AZiot - Professional IoT Solutions & Custom Electronic Devices</title>
+    <meta name="description" content="AZiot provides cutting-edge IoT solutions, custom electronic devices, smart automation systems for construction, manufacturing, and home applications.">
+    <meta name="keywords" content="IoT, Internet of Things, Smart Devices, Automation, Electronic Devices, Smart Home, Industrial IoT, Custom Electronics">
+    
     <style>
         * {
             margin: 0;
@@ -11,29 +14,58 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --dark-primary: #1e293b;
+            --dark-secondary: #334155;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-dark: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #ffffff;
+            color: var(--text-primary);
+            background: var(--white);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header */
+        /* ===== HEADER & NAVIGATION ===== */
         header {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
         }
 
         nav {
@@ -41,19 +73,80 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            height: 80px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .logo:hover .logo-icon {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(30, 58, 138, 0.4);
+        }
+
+        .logo-triangle {
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo-triangle::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 12px solid var(--accent-color);
+            filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.3));
+        }
+
+        .logo-triangle::after {
+            content: 'A';
+            position: absolute;
+            top: 8px;
+            left: 9px;
+            color: var(--white);
+            font-size: 8px;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 32px;
             align-items: center;
         }
 
@@ -62,20 +155,21 @@
         }
 
         .nav-links a {
-            color: #4a5568;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 6px;
         }
 
         .nav-links a:hover {
-            color: #2d3748;
-            background: rgba(74, 85, 104, 0.1);
+            color: var(--primary-color);
+            background: rgba(30, 58, 138, 0.05);
         }
 
         /* Dropdown Menus */
@@ -86,15 +180,14 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%;
+            top: calc(100% + 8px);
             left: 0;
-            background: #ffffff;
-            min-width: 280px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            padding: 1rem 0;
-            margin-top: 0.5rem;
-            border: 1px solid #e2e8f0;
+            background: var(--white);
+            min-width: 320px;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius);
+            padding: 16px 0;
+            border: 1px solid rgba(226, 232, 240, 0.8);
             z-index: 1001;
         }
 
@@ -104,29 +197,1054 @@
         }
 
         .dropdown-content a {
-            color: #4a5568;
-            padding: 0.7rem 1.5rem;
+            color: var(--text-primary);
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
             font-weight: 400;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            font-size: 14px;
+            transition: var(--transition);
             border-radius: 0;
         }
 
         .dropdown-content a:hover {
-            background: #f7fafc;
-            color: #2d3748;
-            padding-left: 2rem;
+            background: rgba(30, 58, 138, 0.05);
+            color: var(--primary-color);
+            padding-left: 32px;
         }
 
         .dropdown-icon {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
+            font-size: 12px;
+            transition: var(--transition);
         }
 
         .dropdown:hover .dropdown-icon {
             transform: rotate(180deg);
+        }
+
+        .cta-nav-button {
+            background: var(--gradient-primary);
+            color: var(--white) !important;
+            padding: 12px 24px !important;
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+            background: var(--gradient-dark) !important;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(30, 58, 138, 0.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            padding: 16px 0;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.4);
+        }
+
+        .cta-button-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: none;
+        }
+
+        .cta-button-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+            animation: fadeInUp 1.4s ease-out 0.8s both;
+        }
+
+        .hero-feature {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            transition: var(--transition);
+        }
+
+        .hero-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .hero-feature h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .hero-feature p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ===== TECHNOLOGY SECTION ===== */
+        .technology-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .tech-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+            text-align: center;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover .tech-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .tech-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .tech-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .tech-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-features li {
+            color: var(--text-secondary);
+            padding: 8px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .tech-features li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* ===== SOLUTIONS SECTION ===== */
+        .solutions-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .solution-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .solution-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-header h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-content {
+            padding: 40px 32px;
+        }
+
+        .solution-content p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .solution-features {
+            display: grid;
+            gap: 20px;
+        }
+
+        .feature-item {
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .products-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .tab-button.active,
+        .tab-button:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-image {
+            background: var(--gradient-accent);
+            color: var(--white);
+            font-size: 48px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image::before {
+            left: 100%;
+        }
+
+        .product-info {
+            padding: 32px 24px;
+        }
+
+        .product-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .product-info p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .product-specs li {
+            color: var(--text-secondary);
+            padding: 6px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-specs li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 100px 0;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            background: var(--white);
+            backdrop-filter: blur(10px);
+            padding: 40px 32px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 56px;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotateY(360deg);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* ===== STATISTICS SECTION ===== */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient-primary);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            font-size: 80px;
+            color: var(--accent-color);
+            font-weight: bold;
+            opacity: 0.3;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 100px 0;
+            background: var(--gradient-dark);
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item span {
+            font-size: 24px;
+            width: 32px;
+            flex-shrink: 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .map-info h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .map-info p {
+            margin-bottom: 32px;
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-now-button {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .contact-now-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
+        }
+
+        .map-embed {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
@@ -140,1021 +1258,499 @@
             }
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-            color: #2d3748;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            color: #2d3748;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            color: #4a5568;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #4a5568;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            box-shadow: 0 8px 25px rgba(74, 85, 104, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            background: #2d3748;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(74, 85, 104, 0.4);
-        }
-
-        @keyframes fadeInUp {
+        @keyframes rotate {
             from {
-                opacity: 0;
-                transform: translateY(30px);
+                transform: rotate(0deg);
             }
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: rotate(360deg);
             }
         }
 
-        /* Learn More Section */
-        .learn-more {
-            padding: 5rem 0;
-            background: #ffffff;
-            color: #2d3748;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .highlight-badge {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3rem;
-        }
-
-        .highlight-products {
-            display: none;
-            margin-top: 2rem;
-        }
-
-        .highlight-products.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .product-item {
-            background: #ffffff;
-            padding: 0;
-            border-radius: 12px;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-
-        .product-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.15);
-            border-color: #28a745;
-        }
-
-        .product-icon {
-            background: #28a745;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 0;
-        }
-
-        .product-content {
-            padding: 2rem;
-        }
-
-        .product-item h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            color: #2d3748;
-            font-weight: 600;
-        }
-
-        .product-item p {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .see-detail-btn {
-            color: #28a745;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .see-detail-btn:hover {
-            border-bottom-color: #28a745;
-        }
-
-        .product-description {
-            display: none;
-            margin-top: 1rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            color: #333;
-            border-radius: 8px;
-            border-left: 4px solid #28a745;
-        }
-
-        .product-description.active {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
                 transform: translateY(-10px);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-content,
+            .map-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
-        /* PAMS Section */
-        .pams-section {
-            background: rgba(74, 85, 104, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-            text-align: center;
-            border: 2px solid rgba(74, 85, 104, 0.2);
-        }
-
-        .pams-section h2 {
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            color: #2d3748;
-        }
-
-        .pams-section p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-
-        .explore-button {
-            background: #4a5568;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .explore-button:hover {
-            background: #2d3748;
-            transform: translateY(-2px) scale(1.05);
-        }
-
-        .pams-description {
-            display: none;
-            margin-top: 2rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            border-radius: 12px;
-            text-align: left;
-            border: 1px solid rgba(74, 85, 104, 0.3);
-        }
-
-        .pams-description.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Technology Section */
-        .technology-section {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .tech-card {
-            background: #ffffff;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .tech-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .tech-card h3 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            text-align: center;
-        }
-
-        .tech-card p {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .tech-features {
-            list-style: none;
-            padding: 0;
-        }
-
-        .tech-features li {
-            color: #4a5568;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .tech-features li:before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Solutions Section */
-        .solutions-section {
-            padding: 5rem 0;
-            background: #ffffff;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .solution-card {
-            background: #ffffff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .solution-header {
-            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .solution-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .solution-header h3 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .solution-content {
-            padding: 2rem;
-        }
-
-        .solution-content p {
-            color: #4a5568;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .solution-features {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .feature-item {
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #28a745;
-        }
-
-        .feature-item h4 {
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .feature-item p {
-            color: #4a5568;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        /* Products Section */
-        .products-section {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .product-category {
-            margin-bottom: 4rem;
-        }
-
-        .category-title {
-            color: #2d3748;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #28a745;
-            display: inline-block;
-        }
-
-        .products-grid-detailed {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card-detailed {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            align-items: stretch;
-        }
-
-        .product-card-detailed:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .product-image {
-            background: linear-gradient(135deg, #28a745 0%, #20a143 100%);
-            color: white;
-            font-size: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 120px;
-            min-width: 120px;
-        }
-
-        .product-info {
-            padding: 2rem;
-            flex: 1;
-        }
-
-        .product-info h4 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .product-info p {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .product-specs {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .product-specs li {
-            color: #4a5568;
-            padding: 0.3rem 0;
-            font-size: 0.9rem;
-        }
-
-        .product-specs li:before {
-            color: #28a745;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
-            color: #2d3748;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(74, 85, 104, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border-color: rgba(74, 85, 104, 0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            color: #2d3748;
-        }
-
-        .service-card p {
-            color: #4a5568;
-        }
-
-        /* Map Section */
-        .map-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
-            color: #2d3748;
-        }
-
-        .map-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .map-info {
-            padding: 2rem;
-        }
-
-        .map-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            color: #2d3748;
-        }
-
-        .map-info p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-
-        .contact-now-button {
-            background: #4a5568;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(74, 85, 104, 0.3);
-        }
-
-        .contact-now-button:hover {
-            background: #2d3748;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(74, 85, 104, 0.4);
-        }
-
-        .map-embed {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .map-embed iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-details {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item span {
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #4a5568;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            padding: 1rem 0;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-menu li {
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .mobile-menu a {
-            color: #4a5568;
-            text-decoration: none;
-            font-size: 1rem;
-            display: block;
-            padding: 1rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            color: #2d3748;
-            background: #f7fafc;
-        }
-
-        .mobile-submenu {
-            background: #f8f9fa;
-            padding: 0;
-        }
-
-        .mobile-submenu a {
-            padding-left: 3rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .mobile-dropdown-toggle {
-            background: none;
-            border: none;
-            color: #4a5568;
-            font-size: 1rem;
-            padding: 1rem 1.5rem;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .mobile-dropdown-toggle:hover {
-            background: #f7fafc;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a202c;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .contact-content,
-            .map-container {
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tech-grid,
+            .solutions-grid,
+            .products-grid,
+            .services-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .products-grid {
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .tech-card,
+            .solution-card,
+            .product-card,
+            .service-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .tech-card,
+            .service-card,
+            .solution-content,
+            .contact-details,
+            .contact-form {
+                padding: 24px 20px;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in-up.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in-left.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in-right.animated {
+            opacity: 1;
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- HEADER -->
+    <header id="header">
         <nav class="container">
-            <a href="#" class="logo">AzIoT.com</a>
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <div class="logo-triangle"></div>
+                </div>
+                <span class="logo-text">AZiot</span>
+            </a>
+
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li class="dropdown">
                     <a href="#technology">
-                        Technology 
+                        Technology
                         <span class="dropdown-icon">▼</span>
                     </a>
                     <div class="dropdown-content">
                         <a href="#data-collection">📊 Data Collection</a>
                         <a href="#automation">🤖 Automation</a>
-                        <a href="#monitoring">🛡️ Protection and Monitoring</a>
-                        <a href="#iot">🌐 Internet of Things</a>
+                        <a href="#monitoring">🛡️ Protection & Monitoring</a>
+                        <a href="#iot-platform">🌐 IoT Platform</a>
+                        <a href="#ai-integration">🧠 AI Integration</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#solutions">
-                        Solutions 
+                        Solutions
                         <span class="dropdown-icon">▼</span>
                     </a>
                     <div class="dropdown-content">
-                        <a href="#construction">🏗️ Construction</a>
-                        <a href="#home">🏠 Home</a>
-                        <a href="#manufacturing">🏭 Manufacturing</a>
+                        <a href="#smart-construction">🏗️ Smart Construction</a>
+                        <a href="#smart-home">🏠 Smart Home</a>
+                        <a href="#smart-manufacturing">🏭 Smart Manufacturing</a>
+                        <a href="#smart-agriculture">🌱 Smart Agriculture</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="#products">
-                        Products 
+                        Products
                         <span class="dropdown-icon">▼</span>
                     </a>
                     <div class="dropdown-content">
-                        <a href="#smart-home">🏠 Smart Home</a>
-                        <a href="#controller-custom">🎛️ Controller Custom</a>
-                        <a href="#smart-agriculture">🌱 Smart Agriculture System</a>
-                        <a href="#smart-security">🔒 Smart Security</a>
-                        <a href="#smart-trash">🗑️ Smart Trash Bin</a>
-                        <a href="#site-safety">⚠️ Smart Site Safety System</a>
-                        <a href="#materials-tracking">📦 Smart Construction Materials Tracking</a>
-                        <a href="#vibration-detection">🌊 Sistem Pendeteksi Getaran atau Longsor</a>
-                        <a href="#weather-station">🌤️ Smart Weather Station untuk Site</a>
-                        <a href="#genset-monitoring">⚡ Smart Genset Monitoring</a>
-                        <a href="#noise-monitoring">🔊 Pemantauan Kebisingan Proyek</a>
-                        <a href="#machine-monitoring">⚙️ Machine Condition Monitoring</a>
-                        <a href="#environment-monitoring">🌍 Sistem Pemantauan Lingkungan Pabrik</a>
-                        <a href="#preventive-maintenance">🔧 Sistem Preventive Maintenance Otomatis</a>
-                        <a href="#production-waste">♻️ Smart Bin untuk Limbah Produksi</a>
+                        <a href="#home-products">🏠 Home Automation</a>
+                        <a href="#industrial-products">🏭 Industrial IoT</a>
+                        <a href="#security-products">🔒 Security Systems</a>
+                        <a href="#environmental-products">🌍 Environmental Monitoring</a>
                     </div>
                 </li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact" class="cta-nav-button">Get Quote</a></li>
             </ul>
+
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </nav>
+
         <div class="mobile-menu" id="mobileMenu">
-            <ul>
-                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
-                <li>
-                    <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown('technologyMobile')">
-                        Technology <span>▼</span>
-                    </button>
-                    <ul class="mobile-submenu" id="technologyMobile" style="display: none;">
-                        <li><a href="#data-collection" onclick="closeMobileMenu()">📊 Data Collection</a></li>
-                        <li><a href="#automation" onclick="closeMobileMenu()">🤖 Automation</a></li>
-                        <li><a href="#monitoring" onclick="closeMobileMenu()">🛡️ Protection and Monitoring</a></li>
-                        <li><a href="#iot" onclick="closeMobileMenu()">🌐 Internet of Things</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown('solutionsMobile')">
-                        Solutions <span>▼</span>
-                    </button>
-                    <ul class="mobile-submenu" id="solutionsMobile" style="display: none;">
-                        <li><a href="#construction" onclick="closeMobileMenu()">🏗️ Construction</a></li>
-                        <li><a href="#home" onclick="closeMobileMenu()">🏠 Home</a></li>
-                        <li><a href="#manufacturing" onclick="closeMobileMenu()">🏭 Manufacturing</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown('productsMobile')">
-                        Products <span>▼</span>
-                    </button>
-                    <ul class="mobile-submenu" id="productsMobile" style="display: none;">
-                        <li><a href="#smart-home" onclick="closeMobileMenu()">🏠 Smart Home</a></li>
-                        <li><a href="#controller-custom" onclick="closeMobileMenu()">🎛️ Controller Custom</a></li>
-                        <li><a href="#smart-agriculture" onclick="closeMobileMenu()">🌱 Smart Agriculture System</a></li>
-                        <li><a href="#smart-security" onclick="closeMobileMenu()">🔒 Smart Security</a></li>
-                        <li><a href="#smart-trash" onclick="closeMobileMenu()">🗑️ Smart Trash Bin</a></li>
-                        <li><a href="#site-safety" onclick="closeMobileMenu()">⚠️ Smart Site Safety System</a></li>
-                        <li><a href="#materials-tracking" onclick="closeMobileMenu()">📦 Materials Tracking</a></li>
-                        <li><a href="#vibration-detection" onclick="closeMobileMenu()">🌊 Pendeteksi Getaran</a></li>
-                        <li><a href="#weather-station" onclick="closeMobileMenu()">🌤️ Weather Station</a></li>
-                        <li><a href="#genset-monitoring" onclick="closeMobileMenu()">⚡ Genset Monitoring</a></li>
-                        <li><a href="#noise-monitoring" onclick="closeMobileMenu()">🔊 Noise Monitoring</a></li>
-                        <li><a href="#machine-monitoring" onclick="closeMobileMenu()">⚙️ Machine Monitoring</a></li>
-                        <li><a href="#environment-monitoring" onclick="closeMobileMenu()">🌍 Environment Monitor</a></li>
-                        <li><a href="#preventive-maintenance" onclick="closeMobileMenu()">🔧 Preventive Maintenance</a></li>
-                        <li><a href="#production-waste" onclick="closeMobileMenu()">♻️ Smart Bin Limbah</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-            </ul>
+            <div class="container">
+                <ul>
+                    <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="#technology" onclick="closeMobileMenu()">Technology</a></li>
+                    <li><a href="#solutions" onclick="closeMobileMenu()">Solutions</a></li>
+                    <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
+                    <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Innovative IoT Solutions</h1>
-            <p>Transform your ideas into cutting-edge electronic devices with our expert IoT development services</p>
-            <a href="#" class="cta-button" onclick="showLearnMore()">Discover More</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀</span>
+                    Leading IoT Innovation
+                </div>
+                <h1>Transform Your World with Smart IoT Solutions</h1>
+                <p>We create cutting-edge Internet of Things devices and systems that revolutionize how you interact with technology. From smart homes to industrial automation, we bring your digital vision to life.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">
+                        Get Started
+                        <span>→</span>
+                    </a>
+                    <a href="#products" class="cta-button cta-button-secondary">
+                        Explore Products
+                        <span>↓</span>
+                    </a>
+                </div>
+
+                <div class="hero-features">
+                    <div class="hero-feature fade-in-up">
+                        <div class="hero-feature-icon">⚡</div>
+                        <h3>Rapid Development</h3>
+                        <p>Fast prototyping and deployment of IoT solutions</p>
+                    </div>
+                    <div class="hero-feature fade-in-up">
+                        <div class="hero-feature-icon">🔒</div>
+                        <h3>Secure & Reliable</h3>
+                        <p>Enterprise-grade security and 99.9% uptime</p>
+                    </div>
+                    <div class="hero-feature fade-in-up">
+                        <div class="hero-feature-icon">🌐</div>
+                        <h3>Global Connectivity</h3>
+                        <p>Connect devices anywhere with multiple protocols</p>
+                    </div>
+                    <div class="hero-feature fade-in-up">
+                        <div class="hero-feature-icon">📊</div>
+                        <h3>Real-time Analytics</h3>
+                        <p>Advanced data insights and predictive analytics</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
+    <!-- TECHNOLOGY SECTION -->
     <section id="technology" class="technology-section">
         <div class="container">
-            <h2 class="section-title">Our Technology</h2>
+            <h2 class="section-title">Our Technology Stack</h2>
+            <p class="section-subtitle">Leveraging cutting-edge technologies to deliver robust, scalable, and intelligent IoT solutions</p>
+            
             <div class="tech-grid">
-                <div class="tech-card" id="data-collection">
+                <div class="tech-card fade-in-up" id="data-collection">
                     <div class="tech-icon">📊</div>
-                    <h3>Data Collection</h3>
-                    <p>Advanced data acquisition systems for real-time monitoring and analysis.</p>
+                    <h3>Advanced Data Collection</h3>
+                    <p>Sophisticated data acquisition systems that capture, process, and analyze information from multiple sources in real-time with minimal latency.</p>
                     <ul class="tech-features">
-                        <li>Real-time sensor data gathering</li>
-                        <li>Multi-protocol support (MQTT, HTTP, CoAP)</li>
+                        <li>Multi-sensor data aggregation</li>
+                        <li>Real-time processing & filtering</li>
+                        <li>Protocol support (MQTT, HTTP, CoAP)</li>
                         <li>Edge computing capabilities</li>
-                        <li>Data preprocessing and filtering</li>
-                        <li>Cloud synchronization</li>
+                        <li>Cloud synchronization & backup</li>
+                        <li>Data validation & quality assurance</li>
                     </ul>
                 </div>
-                <div class="tech-card" id="automation">
+
+                <div class="tech-card fade-in-up" id="automation">
                     <div class="tech-icon">🤖</div>
-                    <h3>Automation</h3>
-                    <p>Intelligent process automation solutions for enhanced efficiency.</p>
+                    <h3>Intelligent Automation</h3>
+                    <p>AI-powered automation systems that learn, adapt, and optimize processes to maximize efficiency while reducing human intervention.</p>
                     <ul class="tech-features">
-                        <li>Industrial process control</li>
-                        <li>Smart workflow management</li>
-                        <li>Predictive maintenance systems</li>
-                        <li>Automated reporting and alerts</li>
+                        <li>Smart workflow orchestration</li>
+                        <li>Predictive maintenance algorithms</li>
                         <li>Machine learning integration</li>
+                        <li>Automated decision making</li>
+                        <li>Process optimization</li>
+                        <li>Adaptive control systems</li>
                     </ul>
                 </div>
-                <div class="tech-card" id="monitoring">
+
+                <div class="tech-card fade-in-up" id="monitoring">
                     <div class="tech-icon">🛡️</div>
-                    <h3>Protection and Monitoring</h3>
-                    <p>Comprehensive security and surveillance systems for 24/7 protection.</p>
+                    <h3>Protection & Monitoring</h3>
+                    <p>Comprehensive security and surveillance systems providing 24/7 monitoring, threat detection, and automated response capabilities.</p>
                     <ul class="tech-features">
-                        <li>24/7 monitoring capabilities</li>
-                        <li>Intrusion detection systems</li>
-                        <li>Access control management</li>
-                        <li>Video surveillance integration</li>
-                        <li>Environmental monitoring</li>
+                        <li>24/7 continuous monitoring</li>
+                        <li>AI-powered threat detection</li>
+                        <li>Automated alert systems</li>
+                        <li>Video analytics & recognition</li>
+                        <li>Access control integration</li>
+                        <li>Incident response automation</li>
                     </ul>
                 </div>
-                <div class="tech-card" id="iot">
+
+                <div class="tech-card fade-in-up" id="iot-platform">
                     <div class="tech-icon">🌐</div>
-                    <h3>Internet of Things</h3>
-                    <p>End-to-end IoT platform and connectivity solutions.</p>
+                    <h3>IoT Platform</h3>
+                    <p>End-to-end IoT platform providing device management, connectivity, data processing, and analytics in a unified ecosystem.</p>
                     <ul class="tech-features">
-                        <li>Device management platforms</li>
-                        <li>Communication protocols (WiFi, LoRa, 4G/5G)</li>
-                        <li>Cloud integration services</li>
-                        <li>Data analytics and visualization</li>
-                        <li>Remote device configuration</li>
+                        <li>Device lifecycle management</li>
+                        <li>Multi-protocol connectivity</li>
+                        <li>Scalable cloud infrastructure</li>
+                        <li>Real-time dashboards</li>
+                        <li>API integration framework</li>
+                        <li>Mobile & web applications</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card fade-in-up" id="ai-integration">
+                    <div class="tech-icon">🧠</div>
+                    <h3>AI Integration</h3>
+                    <p>Advanced artificial intelligence and machine learning capabilities that enable predictive analytics, pattern recognition, and intelligent decision-making.</p>
+                    <ul class="tech-features">
+                        <li>Machine learning models</li>
+                        <li>Predictive analytics</li>
+                        <li>Computer vision systems</li>
+                        <li>Natural language processing</li>
+                        <li>Anomaly detection</li>
+                        <li>Behavioral pattern analysis</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card fade-in-up">
+                    <div class="tech-icon">☁️</div>
+                    <h3>Cloud & Edge Computing</h3>
+                    <p>Hybrid cloud-edge architecture that ensures optimal performance, reduced latency, and seamless scalability for IoT deployments.</p>
+                    <ul class="tech-features">
+                        <li>Hybrid cloud-edge deployment</li>
+                        <li>Container orchestration</li>
+                        <li>Auto-scaling capabilities</li>
+                        <li>Load balancing & optimization</li>
+                        <li>Data sovereignty compliance</li>
+                        <li>Disaster recovery systems</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solutions Section -->
+    <!-- SOLUTIONS SECTION -->
     <section id="solutions" class="solutions-section">
         <div class="container">
             <h2 class="section-title">Industry Solutions</h2>
+            <p class="section-subtitle">Tailored IoT solutions designed for specific industry needs and challenges</p>
+
             <div class="solutions-grid">
-                <div class="solution-card" id="construction">
+                <div class="solution-card fade-in-up" id="smart-construction">
                     <div class="solution-header">
                         <div class="solution-icon">🏗️</div>
-                        <h3>Construction</h3>
+                        <h3>Smart Construction</h3>
                     </div>
                     <div class="solution-content">
-                        <p>Smart construction management solutions for modern building projects.</p>
+                        <p>Revolutionary construction management solutions that enhance safety, productivity, and project visibility through advanced IoT integration.</p>
                         <div class="solution-features">
                             <div class="feature-item">
-                                <h4>Project Monitoring</h4>
-                                <p>Real-time progress tracking and resource optimization</p>
+                                <h4>Site Safety Monitoring</h4>
+                                <p>Real-time worker safety tracking with wearable devices, hazard detection, and emergency response systems.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Equipment Tracking</h4>
-                                <p>GPS-based asset tracking and utilization monitoring</p>
+                                <h4>Equipment & Asset Tracking</h4>
+                                <p>GPS-enabled tracking of machinery, tools, and materials with usage analytics and theft prevention.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Safety Systems</h4>
-                                <p>Worker safety monitoring and compliance checking</p>
+                                <h4>Environmental Monitoring</h4>
+                                <p>Air quality, noise levels, and weather monitoring to ensure compliance and optimal working conditions.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Material Management</h4>
-                                <p>Inventory tracking and supply chain optimization</p>
+                                <h4>Project Progress Tracking</h4>
+                                <p>Automated progress monitoring using computer vision and sensor data for accurate project reporting.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="solution-card" id="home">
+
+                <div class="solution-card fade-in-up" id="smart-home">
                     <div class="solution-header">
                         <div class="solution-icon">🏠</div>
-                        <h3>Home</h3>
+                        <h3>Smart Home Ecosystem</h3>
                     </div>
                     <div class="solution-content">
-                        <p>Complete smart home automation for modern living.</p>
+                        <p>Complete home automation ecosystem that transforms traditional homes into intelligent, responsive living spaces.</p>
                         <div class="solution-features">
                             <div class="feature-item">
-                                <h4>Home Automation</h4>
-                                <p>Intelligent control of lighting, climate, and appliances</p>
+                                <h4>Intelligent Climate Control</h4>
+                                <p>AI-powered HVAC systems that learn preferences and optimize energy consumption automatically.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Security & Access Control</h4>
+                                <p>Advanced security systems with facial recognition, smart locks, and integrated surveillance.</p>
                             </div>
                             <div class="feature-item">
                                 <h4>Energy Management</h4>
-                                <p>Smart energy monitoring and cost optimization</p>
+                                <p>Smart grid integration with renewable energy sources and intelligent power distribution.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Security Integration</h4>
-                                <p>Advanced security systems with mobile alerts</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Voice Control</h4>
-                                <p>Integration with popular voice assistants</p>
+                                <h4>Voice & App Control</h4>
+                                <p>Seamless control through voice assistants and intuitive mobile applications.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="solution-card" id="manufacturing">
+
+                <div class="solution-card fade-in-up" id="smart-manufacturing">
                     <div class="solution-header">
                         <div class="solution-icon">🏭</div>
-                        <h3>Manufacturing</h3>
+                        <h3>Smart Manufacturing</h3>
                     </div>
                     <div class="solution-content">
-                        <p>Industrial IoT solutions for smart manufacturing.</p>
+                        <p>Industry 4.0 manufacturing solutions that optimize production, reduce downtime, and improve quality through intelligent automation.</p>
                         <div class="solution-features">
                             <div class="feature-item">
-                                <h4>Production Monitoring</h4>
-                                <p>Real-time production line tracking and analytics</p>
-                            </div>
-                            <div class="feature-item">
-                                <h4>Quality Control</h4>
-                                <p>Automated quality assurance and defect detection</p>
+                                <h4>Production Line Optimization</h4>
+                                <p>Real-time monitoring and optimization of production processes with AI-driven insights.</p>
                             </div>
                             <div class="feature-item">
                                 <h4>Predictive Maintenance</h4>
-                                <p>AI-powered maintenance scheduling and optimization</p>
+                                <p>Machine learning algorithms that predict equipment failures before they occur.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Supply Chain</h4>
-                                <p>End-to-end supply chain visibility and optimization</p>
+                                <h4>Quality Assurance</h4>
+                                <p>Automated quality control using computer vision and sensor-based inspection systems.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Supply Chain Integration</h4>
+                                <p>End-to-end visibility across the entire supply chain with real-time tracking and optimization.</p>
                             </div>
                         </div>
                     </div>
@@ -1163,368 +1759,360 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- STATISTICS SECTION -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Devices Connected</div>
+                </div>
+                <div class="stat-item fade-in-up">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">% Uptime Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
     <section id="products" class="products-section">
         <div class="container">
-            <h2 class="section-title">Our Products</h2>
-            
-            <!-- Smart Home Products -->
-            <div class="product-category">
-                <h3 class="category-title">Smart Home Solutions</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="smart-home">
-                        <div class="product-image">🏠</div>
-                        <div class="product-info">
-                            <h4>Smart Home System</h4>
-                            <p>Complete home automation package with mobile app control, voice assistant integration, and energy monitoring dashboard.</p>
-                            <ul class="product-specs">
-                                <li>✓ Mobile app control</li>
-                                <li>✓ Voice assistant integration</li>
-                                <li>✓ Energy monitoring</li>
-                                <li>✓ Remote access</li>
-                            </ul>
-                        </div>
+            <h2 class="section-title">Our Product Portfolio</h2>
+            <p class="section-subtitle">Comprehensive range of IoT devices and systems for various applications</p>
+
+            <div class="products-tabs">
+                <button class="tab-button active" onclick="showProducts('home-products')">Home & Office</button>
+                <button class="tab-button" onclick="showProducts('industrial-products')">Industrial</button>
+                <button class="tab-button" onclick="showProducts('security-products')">Security</button>
+                <button class="tab-button" onclick="showProducts('environmental-products')">Environmental</button>
+            </div>
+
+            <div id="home-products" class="products-grid">
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🏠</div>
+                    <div class="product-info">
+                        <h4>Smart Home Hub</h4>
+                        <p>Central control unit that connects and manages all your smart home devices through a single, intuitive interface.</p>
+                        <ul class="product-specs">
+                            <li>Voice control integration</li>
+                            <li>Mobile app management</li>
+                            <li>Multi-protocol support</li>
+                            <li>Cloud & local processing</li>
+                        </ul>
                     </div>
-                    <div class="product-card-detailed" id="controller-custom">
-                        <div class="product-image">🎛️</div>
-                        <div class="product-info">
-                            <h4>Controller Custom</h4>
-                            <p>Customizable control panels for multi-device management with user-friendly interfaces and remote access capabilities.</p>
-                            <ul class="product-specs">
-                                <li>✓ Customizable interfaces</li>
-                                <li>✓ Multi-device control</li>
-                                <li>✓ Remote access</li>
-                                <li>✓ User-friendly design</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🎛️</div>
+                    <div class="product-info">
+                        <h4>Custom Control Panel</h4>
+                        <p>Personalized control interfaces designed for specific applications with customizable layouts and functions.</p>
+                        <ul class="product-specs">
+                            <li>Customizable interface</li>
+                            <li>Touch screen displays</li>
+                            <li>Wireless connectivity</li>
+                            <li>Modular design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">💡</div>
+                    <div class="product-info">
+                        <h4>Smart Lighting System</h4>
+                        <p>Intelligent lighting solutions with automated scheduling, mood settings, and energy optimization features.</p>
+                        <ul class="product-specs">
+                            <li>Automated scheduling</li>
+                            <li>Color temperature control</li>
+                            <li>Motion detection</li>
+                            <li>Energy monitoring</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Agriculture & Environment -->
-            <div class="product-category">
-                <h3 class="category-title">Agriculture & Environment</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="smart-agriculture">
-                        <div class="product-image">🌱</div>
-                        <div class="product-info">
-                            <h4>Smart Agriculture System</h4>
-                            <p>Comprehensive agricultural monitoring with soil sensors, automated irrigation, and crop health analysis.</p>
-                            <ul class="product-specs">
-                                <li>✓ Soil moisture monitoring</li>
-                                <li>✓ Automated irrigation</li>
-                                <li>✓ Weather integration</li>
-                                <li>✓ Crop health monitoring</li>
-                            </ul>
-                        </div>
+            <div id="industrial-products" class="products-grid hidden">
+                <div class="product-card fade-in-up">
+                    <div class="product-image">⚙️</div>
+                    <div class="product-info">
+                        <h4>Machine Condition Monitor</h4>
+                        <p>Advanced monitoring system that tracks machine health through vibration analysis, temperature monitoring, and predictive maintenance algorithms.</p>
+                        <ul class="product-specs">
+                            <li>Vibration & temperature sensors</li>
+                            <li>Predictive analytics</li>
+                            <li>Real-time alerts</li>
+                            <li>Maintenance scheduling</li>
+                        </ul>
                     </div>
-                    <div class="product-card-detailed" id="weather-station">
-                        <div class="product-image">🌤️</div>
-                        <div class="product-info">
-                            <h4>Smart Weather Station</h4>
-                            <p>Professional weather monitoring for construction sites with real-time data and historical logging.</p>
-                            <ul class="product-specs">
-                                <li>✓ Real-time weather data</li>
-                                <li>✓ Temperature & humidity</li>
-                                <li>✓ Wind speed & direction</li>
-                                <li>✓ Historical data logging</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🏭</div>
+                    <div class="product-info">
+                        <h4>Production Line Monitor</h4>
+                        <p>Comprehensive production monitoring system with quality control, efficiency tracking, and automated reporting capabilities.</p>
+                        <ul class="product-specs">
+                            <li>Real-time production tracking</li>
+                            <li>Quality control integration</li>
+                            <li>Efficiency analytics</li>
+                            <li>Automated reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">⚡</div>
+                    <div class="product-info">
+                        <h4>Smart Genset Monitor</h4>
+                        <p>Intelligent generator monitoring system with fuel tracking, performance analysis, and remote control capabilities.</p>
+                        <ul class="product-specs">
+                            <li>Fuel level monitoring</li>
+                            <li>Performance analytics</li>
+                            <li>Remote start/stop</li>
+                            <li>Maintenance alerts</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Security & Safety -->
-            <div class="product-category">
-                <h3 class="category-title">Security & Safety</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="smart-security">
-                        <div class="product-image">🔒</div>
-                        <div class="product-info">
-                            <h4>Smart Security System</h4>
-                            <p>Integrated surveillance with motion detection, facial recognition, and mobile alerts with cloud backup.</p>
-                            <ul class="product-specs">
-                                <li>✓ Motion detection</li>
-                                <li>✓ Facial recognition</li>
-                                <li>✓ Mobile alerts</li>
-                                <li>✓ Cloud storage</li>
-                            </ul>
-                        </div>
+            <div id="security-products" class="products-grid hidden">
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🔒</div>
+                    <div class="product-info">
+                        <h4>Smart Security System</h4>
+                        <p>Integrated security solution with facial recognition, motion detection, and intelligent alert systems for comprehensive protection.</p>
+                        <ul class="product-specs">
+                            <li>Facial recognition technology</li>
+                            <li>Motion & intrusion detection</li>
+                            <li>Mobile alert notifications</li>
+                            <li>Cloud video storage</li>
+                        </ul>
                     </div>
-                    <div class="product-card-detailed" id="site-safety">
-                        <div class="product-image">⚠️</div>
-                        <div class="product-info">
-                            <h4>Smart Site Safety System</h4>
-                            <p>Comprehensive worker safety monitoring with hazard detection and emergency alert systems.</p>
-                            <ul class="product-specs">
-                                <li>✓ Worker safety monitoring</li>
-                                <li>✓ Hazard detection</li>
-                                <li>✓ Emergency alerts</li>
-                                <li>✓ PPE compliance</li>
-                            </ul>
-                        </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🎥</div>
+                    <div class="product-info">
+                        <h4>AI-Powered Surveillance</h4>
+                        <p>Advanced surveillance system with computer vision, behavioral analysis, and automated threat detection capabilities.</p>
+                        <ul class="product-specs">
+                            <li>Computer vision analysis</li>
+                            <li>Behavioral pattern recognition</li>
+                            <li>Automated threat detection</li>
+                            <li>Multi-camera coordination</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🚨</div>
+                    <div class="product-info">
+                        <h4>Emergency Response System</h4>
+                        <p>Rapid emergency response system with panic buttons, automated alerts, and integration with local emergency services.</p>
+                        <ul class="product-specs">
+                            <li>Panic button integration</li>
+                            <li>Automated emergency alerts</li>
+                            <li>GPS location tracking</li>
+                            <li>Emergency services integration</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Waste Management -->
-            <div class="product-category">
-                <h3 class="category-title">Waste Management</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="smart-trash">
-                        <div class="product-image">🗑️</div>
-                        <div class="product-info">
-                            <h4>Smart Trash Bin</h4>
-                            <p>Intelligent waste management with fill level monitoring and automated collection scheduling.</p>
-                            <ul class="product-specs">
-                                <li>✓ Fill level monitoring</li>
-                                <li>✓ Collection scheduling</li>
-                                <li>✓ Route optimization</li>
-                                <li>✓ Cost analytics</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="production-waste">
-                        <div class="product-image">♻️</div>
-                        <div class="product-info">
-                            <h4>Smart Bin Limbah Produksi</h4>
-                            <p>Industrial waste monitoring with segregation compliance and environmental impact tracking.</p>
-                            <ul class="product-specs">
-                                <li>✓ Waste monitoring</li>
-                                <li>✓ Segregation compliance</li>
-                                <li>✓ Environmental tracking</li>
-                                <li>✓ Regulatory reporting</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Construction & Infrastructure -->
-            <div class="product-category">
-                <h3 class="category-title">Construction & Infrastructure</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="materials-tracking">
-                        <div class="product-image">📦</div>
-                        <div class="product-info">
-                            <h4>Smart Materials Tracking</h4>
-                            <p>Advanced material inventory management with supply chain visibility and theft prevention.</p>
-                            <ul class="product-specs">
-                                <li>✓ Inventory management</li>
-                                <li>✓ Supply chain visibility</li>
-                                <li>✓ Theft prevention</li>
-                                <li>✓ Usage optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="vibration-detection">
-                        <div class="product-image">🌊</div>
-                        <div class="product-info">
-                            <h4>Sistem Pendeteksi Getaran</h4>
-                            <p>Seismic monitoring system for landslide detection and structural health monitoring with early warning alerts.</p>
-                            <ul class="product-specs">
-                                <li>✓ Seismic monitoring</li>
-                                <li>✓ Landslide detection</li>
-                                <li>✓ Structural health</li>
-                                <li>✓ Early warning system</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Monitoring & Maintenance -->
-            <div class="product-category">
-                <h3 class="category-title">Monitoring & Maintenance</h3>
-                <div class="products-grid-detailed">
-                    <div class="product-card-detailed" id="genset-monitoring">
-                        <div class="product-image">⚡</div>
-                        <div class="product-info">
-                            <h4>Smart Genset Monitoring</h4>
-                            <p>Comprehensive generator monitoring with fuel tracking, performance analysis, and remote control.</p>
-                            <ul class="product-specs">
-                                <li>✓ Fuel level tracking</li>
-                                <li>✓ Performance monitoring</li>
-                                <li>✓ Maintenance scheduling</li>
-                                <li>✓ Remote control</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="noise-monitoring">
-                        <div class="product-image">🔊</div>
-                        <div class="product-info">
-                            <h4>Noise Monitoring System</h4>
-                            <p>Professional noise level monitoring for construction projects with compliance reporting and community impact assessment.</p>
-                            <ul class="product-specs">
-                                <li>✓ Sound level measurement</li>
-                                <li>✓ Compliance reporting</li>
-                                <li>✓ Impact assessment</li>
-                                <li>✓ Real-time alerts</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="machine-monitoring">
-                        <div class="product-image">⚙️</div>
-                        <div class="product-info">
-                            <h4>Machine Condition Monitoring</h4>
-                            <p>Advanced machine health monitoring with vibration analysis and predictive maintenance capabilities.</p>
-                            <ul class="product-specs">
-                                <li>✓ Vibration analysis</li>
-                                <li>✓ Temperature monitoring</li>
-                                <li>✓ Predictive maintenance</li>
-                                <li>✓ Performance optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="environment-monitoring">
-                        <div class="product-image">🌍</div>
-                        <div class="product-info">
-                            <h4>Environmental Monitoring</h4>
-                            <p>Comprehensive factory environmental monitoring with air quality, water testing, and emission tracking.</p>
-                            <ul class="product-specs">
-                                <li>✓ Air quality monitoring</li>
-                                <li>✓ Water quality testing</li>
-                                <li>✓ Emission tracking</li>
-                                <li>✓ Compliance reporting</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-card-detailed" id="preventive-maintenance">
-                        <div class="product-image">🔧</div>
-                        <div class="product-info">
-                            <h4>Preventive Maintenance System</h4>
-                            <p>Automated maintenance scheduling system with equipment health tracking and cost optimization.</p>
-                            <ul class="product-specs">
-                                <li>✓ Automated scheduling</li>
-                                <li>✓ Health tracking</li>
-                                <li>✓ Cost optimization</li>
-                                <li>✓ Downtime reduction</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <section id="learn" class="learn-more">
-        <div class="container">
-            <div class="highlight-products" id="highlightProducts">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <span class="highlight-badge">HIGHLIGHT</span>
-                    <h2 class="section-title">Product / Technology</h2>
-                </div>
-                <div class="products-grid">
-                    <div class="product-item" onclick="toggleDescription('dataCollection')">
-                        <div class="product-icon">📊</div>
-                        <div class="product-content">
-                            <h3>Data Collection</h3>
-                            <p>Accurate data collection will help you understand ongoing business processes. Wasted resources and wasted time in collecting...</p>
-                            <a href="#" class="see-detail-btn">See Detail</a>
-                            <div class="product-description" id="dataCollection">
-                                <p>Advanced data collection systems that gather, process, and analyze information from multiple sensors and devices in real-time. Our solutions ensure accurate data capture with minimal latency, supporting various data formats and protocols for seamless integration with existing infrastructure.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item" onclick="toggleDescription('automation')">
-                        <div class="product-icon">🤖</div>
-                        <div class="product-content">
-                            <h3>Automation</h3>
-                            <p>Implementing automation will give employees more time, resources, and freedom. Automation also increases efficiency, effectiveness...</p>
-                            <a href="#" class="see-detail-btn">See Detail</a>
-                            <div class="product-description" id="automation">
-                                <p>Intelligent automation solutions that streamline processes and reduce manual intervention. Our systems feature adaptive algorithms, predictive maintenance capabilities, and seamless integration with existing workflows to maximize efficiency and minimize operational costs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item" onclick="toggleDescription('protection')">
-                        <div class="product-icon">🛡️</div>
-                        <div class="product-content">
-                            <h3>Protection and Monitoring</h3>
-                            <p>Product protection and monitoring is very helpful in getting data about how our customers find, share...</p>
-                            <a href="#" class="see-detail-btn">See Detail</a>
-                            <div class="product-description" id="protection">
-                                <p>Comprehensive security and monitoring systems that provide 24/7 surveillance and threat detection. Features include real-time alerts, encrypted communications, access control, and detailed logging for compliance and audit purposes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item" onclick="toggleDescription('iot')">
-                        <div class="product-icon">🌐</div>
-                        <div class="product-content">
-                            <h3>Internet of Things</h3>
-                            <p>The Internet of Things can enable us to get clear information from connected objects, perform analysis based on accurate data...</p>
-                            <a href="#" class="see-detail-btn">See Detail</a>
-                            <div class="product-description" id="iot">
-                                <p>End-to-end IoT solutions that connect devices, sensors, and systems across various industries. Our platform supports multiple communication protocols, cloud integration, edge computing, and scalable architecture for growing business needs.</p>
-                            </div>
-                        </div>
+            <div id="environmental-products" class="products-grid hidden">
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🌍</div>
+                    <div class="product-info">
+                        <h4>Environmental Monitor</h4>
+                        <p>Comprehensive environmental monitoring system tracking air quality, temperature, humidity, and pollution levels.</p>
+                        <ul class="product-specs">
+                            <li>Air quality sensors</li>
+                            <li>Temperature & humidity tracking</li>
+                            <li>Pollution level monitoring</li>
+                            <li>Regulatory compliance reporting</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="pams-section">
-                    <h2>PortS Asset Management System (PAMS)</h2>
-                    <p>Comprehensive asset tracking and management solution designed for port operations and logistics management.</p>
-                    <button class="explore-button" onclick="togglePamsDescription()">Explore</button>
-                    <div class="pams-description" id="pamsDescription">
-                        <h3>Advanced Port Asset Management</h3>
-                        <p><strong>Real-time Asset Tracking:</strong> Monitor containers, vehicles, and equipment locations with GPS and RFID technology.</p>
-                        <p><strong>Automated Inventory Management:</strong> Track asset movements, maintenance schedules, and utilization rates automatically.</p>
-                        <p><strong>Performance Analytics:</strong> Generate detailed reports on asset performance, downtime analysis, and operational efficiency.</p>
-                        <p><strong>Integration Capabilities:</strong> Seamless integration with existing port management systems and third-party logistics platforms.</p>
-                        <p><strong>Mobile Access:</strong> Field personnel can access asset information and update status through mobile applications.</p>
-                        <p><strong>Predictive Maintenance:</strong> AI-powered algorithms predict maintenance needs before equipment failures occur.</p>
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🌤️</div>
+                    <div class="product-info">
+                        <h4>Smart Weather Station</h4>
+                        <p>Professional-grade weather monitoring station with real-time data collection and historical weather analysis.</p>
+                        <ul class="product-specs">
+                            <li>Real-time weather data</li>
+                            <li>Wind speed & direction</li>
+                            <li>Rainfall measurement</li>
+                            <li>Historical data analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in-up">
+                    <div class="product-image">🗑️</div>
+                    <div class="product-info">
+                        <h4>Smart Waste Management</h4>
+                        <p>Intelligent waste monitoring system with fill-level detection, collection optimization, and environmental impact tracking.</p>
+                        <ul class="product-specs">
+                            <li>Fill level detection</li>
+                            <li>Collection route optimization</li>
+                            <li>Waste analytics</li>
+                            <li>Environmental impact tracking</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SERVICES SECTION -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">End-to-end IoT development services from concept to deployment</p>
+
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in-up">
                     <div class="service-icon">🔧</div>
-                    <h3>Custom IoT Device Creation</h3>
-                    <p>Design and develop custom Internet of Things devices tailored to your specific needs and requirements</p>
+                    <h3>Custom IoT Development</h3>
+                    <p>Full-cycle IoT device development including hardware design, firmware programming, and cloud integration tailored to your specific requirements.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card fade-in-up">
                     <div class="service-icon">📱</div>
                     <h3>Mobile App Development</h3>
-                    <p>Create companion mobile applications for seamless device control and monitoring</p>
+                    <p>Native and cross-platform mobile applications for seamless device control, monitoring, and data visualization with intuitive user interfaces.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card fade-in-up">
                     <div class="service-icon">☁️</div>
-                    <h3>Cloud Integration</h3>
-                    <p>Implement robust cloud solutions for data storage, analytics, and remote device management</p>
+                    <h3>Cloud Platform Integration</h3>
+                    <p>Scalable cloud infrastructure setup with data analytics, device management, and real-time monitoring capabilities for enterprise-grade solutions.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card fade-in-up">
                     <div class="service-icon">🔒</div>
-                    <h3>Security Solutions</h3>
-                    <p>Ensure your IoT devices are secure with advanced encryption and authentication protocols</p>
+                    <h3>Security Implementation</h3>
+                    <p>Advanced cybersecurity measures including end-to-end encryption, secure authentication, and compliance with industry security standards.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card fade-in-up">
                     <div class="service-icon">⚡</div>
-                    <h3>Hardware Prototyping</h3>
-                    <p>Rapid prototyping and testing of electronic circuits and components</p>
+                    <h3>Rapid Prototyping</h3>
+                    <p>Fast prototype development and testing services to validate concepts and accelerate time-to-market for innovative IoT solutions.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card fade-in-up">
                     <div class="service-icon">🎯</div>
-                    <h3>Consultation Services</h3>
-                    <p>Expert advice on IoT strategy, technology selection, and implementation planning</p>
+                    <h3>IoT Consulting</h3>
+                    <p>Strategic consulting services for IoT implementation, technology selection, architecture design, and digital transformation roadmaps.</p>
+                </div>
+
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Comprehensive post-deployment support including system maintenance, updates, troubleshooting, and 24/7 technical assistance.</p>
+                </div>
+
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Analytics</h3>
+                    <p>Advanced data processing and analytics services with AI/ML integration for predictive insights and business intelligence.</p>
+                </div>
+
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🌐</div>
+                    <h3>System Integration</h3>
+                    <p>Seamless integration of IoT systems with existing enterprise infrastructure, ERP systems, and third-party platforms.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Trusted by industry leaders and innovative companies worldwide</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-text">
+                        "AZiot transformed our manufacturing facility with their smart monitoring solutions. We've seen a 30% reduction in downtime and significant improvements in operational efficiency. Their team's expertise and support have been exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>John Doe</h4>
+                            <p>Manufacturing Director, TechCorp Industries</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-text">
+                        "The smart home system from AZiot has completely changed how we live. The automation is seamless, and the energy savings are remarkable. The installation was professional and the ongoing support is top-notch."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Homeowner, Smart Villa Project</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-text">
+                        "AZiot's construction site monitoring solution provided us with unprecedented visibility into our projects. The safety improvements alone have made this investment worthwhile, and the productivity gains are a bonus."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Project Manager, BuildSmart Construction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-text">
+                        "Working with AZiot was a game-changer for our agriculture operations. Their smart irrigation and monitoring systems have increased our crop yields by 25% while reducing water consumption. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RL</div>
+                        <div class="author-info">
+                            <h4>Robert Lee</h4>
+                            <p>Farm Owner, GreenFields Agriculture</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
     <section class="map-section">
         <div class="container">
             <div class="map-container">
-                <div class="map-info">
-                    <h3>Have a project or want to request a demo?</h3>
-                    <p>Contact us immediately and consult further digital needs for your business. We're here to help transform your ideas into innovative IoT solutions.</p>
-                    <a href="https://wa.me/085258600345" class="contact-now-button" target="_blank">Contact Now</a>
+                <div class="map-info fade-in-left">
+                    <h3>Ready to Start Your IoT Journey?</h3>
+                    <p>Located in the heart of Central Java, we serve clients globally with cutting-edge IoT solutions. Contact us today to discuss your project requirements and discover how we can transform your ideas into reality.</p>
+                    <a href="https://wa.me/6285258600345" class="contact-now-button" target="_blank">
+                        Contact Us Now
+                        <span>→</span>
+                    </a>
                 </div>
-                <div class="map-embed">
+                <div class="map-embed fade-in-right">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63256.95845318431!2d109.01234567890123!3d-7.456789012345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjcnMjQuNCJTIDEwOcKwMDAnNDQuNCJF!5e0!3m2!1sen!2sid!4v1690123456789!5m2!1sen!2sid&q=Jl.+Jend.+Ahmad+Yani+No.08,+Dusun+Krisik,+Kec.+Cipari,+Kabupaten+Cilacap,+Jawa+Tengah+53262" 
                         allowfullscreen="" 
@@ -1535,90 +2123,174 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your IoT project and bring your vision to life</p>
+
             <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Us</h3>
-                    <p>Consult your company's needs with our best consultants. We manage clients wholeheartedly for our loyal customers, with coverage almost throughout Indonesia.</p>
+                <div class="contact-info fade-in-left">
+                    <h3>Contact Information</h3>
+                    <p>We're here to help you transform your ideas into innovative IoT solutions. Reach out to our expert team for consultation and project discussions.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span>👤</span>
+                            <div>
+                                <strong>Contact Person</strong>
+                                Muhammad Azharul Mangali<br>
+                                Lead IoT Engineer & Founder
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                azzamangali70@gmail.com
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <div>
+                                <strong>Phone & WhatsApp</strong>
+                                +62 852 5860 0345
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>🏢</span>
+                            <div>
+                                <strong>Office Address</strong>
+                                Jl. Jend. Ahmad Yani No.08<br>
+                                Dusun Krisik, Kec. Cipari<br>
+                                Kab. Cilacap, Jawa Tengah 53262
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span>🕐</span>
+                            <div>
+                                <strong>Business Hours</strong>
+                                Monday - Friday: 8:00 AM - 5:00 PM<br>
+                                Saturday: 8:00 AM - 2:00 PM
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <span>👤</span>
-                        <div>
-                            <strong>Contact Person:</strong><br>
-                            Muhammad Azharul Mangali, Lead IoT Engineer
+
+                <div class="contact-form fade-in-right">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <div>
-                            <strong>Email:</strong><br>
-                            azzamangali70@gmail.com
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <span>📞</span>
-                        <div>
-                            <strong>Phone:</strong><br>
-                            085 258 600 345
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <span>🏢</span>
-                        <div>
-                            <strong>Office:</strong><br>
-                            Jl. Jend. Ahmad Yani No.08, Dusun Krisik<br>
-                            Kec. Cipari, Kab. Cilacap, Jawa Tengah 53262
+                        
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Enter your company name">
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <span>🕐</span>
-                        <div>
-                            <strong>Business Hours:</strong><br>
-                            Mon-Fri: 8:00 AM - 5:00 PM
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" style="width: 100%; padding: 12px 16px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: white;">
+                                <option value="">Select a service</option>
+                                <option value="custom-iot">Custom IoT Development</option>
+                                <option value="smart-home">Smart Home Solutions</option>
+                                <option value="industrial-iot">Industrial IoT</option>
+                                <option value="consultation">IoT Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 AzIoT.com - Custom IoT Solutions. All rights reserved. | Transforming Ideas into Smart Reality</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AZiot</h3>
+                    <p>Leading IoT innovation company specializing in custom electronic devices, smart automation systems, and intelligent connectivity solutions for the digital future.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="https://wa.me/6285258600345" class="social-link" target="_blank">📱</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">🌐</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Custom IoT Development</a></li>
+                        <li><a href="#services">Mobile App Development</a></li>
+                        <li><a href="#services">Cloud Integration</a></li>
+                        <li><a href="#services">Security Implementation</a></li>
+                        <li><a href="#services">IoT Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="#solutions">Smart Construction</a></li>
+                        <li><a href="#solutions">Smart Home</a></li>
+                        <li><a href="#solutions">Smart Manufacturing</a></li>
+                        <li><a href="#solutions">Smart Agriculture</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><strong>Address:</strong><br>
+                    Jl. Jend. Ahmad Yani No.08<br>
+                    Dusun Krisik, Kec. Cipari<br>
+                    Kab. Cilacap, Jawa Tengah 53262</p>
+                    <p><strong>Phone:</strong> +62 852 5860 0345</p>
+                    <p><strong>Email:</strong> azzamangali70@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AZiot - Advanced IoT Solutions. All rights reserved. | Transforming Ideas into Smart Reality</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Show Learn More section
-        function showLearnMore() {
-            document.getElementById('highlightProducts').classList.add('active');
-            document.getElementById('learn').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Toggle product descriptions
-        function toggleDescription(id) {
-            const desc = document.getElementById(id);
-            const isActive = desc.classList.contains('active');
-            
-            // Hide all descriptions
-            document.querySelectorAll('.product-description').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Show clicked description if it wasn't active
-            if (!isActive) {
-                desc.classList.add('active');
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
             }
-        }
-
-        // Toggle PAMS description
-        function togglePamsDescription() {
-            const desc = document.getElementById('pamsDescription');
-            desc.classList.toggle('active');
-        }
+        });
 
         // Mobile menu functionality
         function toggleMobileMenu() {
@@ -1629,39 +2301,156 @@
         function closeMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.remove('active');
-            
-            // Close all mobile dropdowns
-            document.querySelectorAll('.mobile-submenu').forEach(submenu => {
-                submenu.style.display = 'none';
-            });
         }
 
-        function toggleMobileDropdown(id) {
-            const submenu = document.getElementById(id);
-            const isVisible = submenu.style.display === 'block';
-            
-            // Close all other submenus
-            document.querySelectorAll('.mobile-submenu').forEach(menu => {
-                if (menu.id !== id) {
-                    menu.style.display = 'none';
-                }
+        // Products tabs functionality
+        function showProducts(category) {
+            // Hide all product grids
+            document.querySelectorAll('.products-grid').forEach(grid => {
+                grid.classList.add('hidden');
             });
             
-            // Toggle current submenu
-            submenu.style.display = isVisible ? 'none' : 'block';
+            // Show selected category
+            document.getElementById(category).classList.remove('hidden');
+            
+            // Update active tab
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
         }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && href.length > 1) {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        const headerOffset = 80;
+                        const elementPosition = target.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 }
+            });
+        });
+
+        // Animated counter for statistics
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const options = {
+                threshold: 0.7
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const count = parseInt(counter.innerText);
+                        
+                        const increment = target / 100;
+                        
+                        function updateCount() {
+                            const current = parseInt(counter.innerText);
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current + increment);
+                                setTimeout(updateCount, 20);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        }
+                        
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, options);
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const company = formData.get('company');
+            const service = formData.get('service');
+            const message = formData.get('message');
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello AZiot Team!%0A%0A` +
+                `Name: ${name}%0A` +
+                `Email: ${email}%0A` +
+                `Phone: ${phone}%0A` +
+                `Company: ${company}%0A` +
+                `Service Interest: ${service}%0A%0A` +
+                `Message: ${message}%0A%0A` +
+                `Best regards,${name}`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/6285258600345?text=${whatsappMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you! Your message has been sent via WhatsApp.');
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.3;
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            animateCounters();
+            
+            // Add floating animation to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'float 6s ease-in-out infinite';
             });
         });
 
@@ -1672,46 +2461,17 @@
             
             if (!mobileMenu.contains(event.target) && !toggleButton.contains(event.target)) {
                 mobileMenu.classList.remove('active');
-                // Close all mobile dropdowns
-                document.querySelectorAll('.mobile-submenu').forEach(submenu => {
-                    submenu.style.display = 'none';
-                });
             }
         });
 
-        // Header background change on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
         });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        });
-
-        // Add floating animation to service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.style.animation = 'float 6s ease-in-out infinite';
-        });
-
-        // CSS animation for floating effect
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-            }
-        `;
-        document.head.appendChild(style);
+        // Preloader styles
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease-in-out';
     </script>
 </body>
 </html>
